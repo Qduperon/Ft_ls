@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:06:17 by qduperon          #+#    #+#             */
-/*   Updated: 2016/02/26 13:33:58 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/02/26 17:19:43 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,19 @@
 # include <sys/stat.h>
 # include <stdio.h>
 
-int		ft_do_ls(void);
-int		ft_parser(int ac, char **av);
+typedef	struct		s_struct
+{
+	int	a;
+	int l;
+	int rec;
+	int r;
+	int	t;
+}					t_struct;
+
+int					ft_do_ls(void);
+int					ft_parser(int ac, char **av, t_struct flags);
+t_struct			ft_ini_struct(t_struct flags);
+void				ft_error_directory(char *s);
+void				ft_error_flags(char c);
 
 #endif

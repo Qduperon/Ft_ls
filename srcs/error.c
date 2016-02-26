@@ -1,22 +1,30 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   error.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/23 18:50:40 by qduperon          #+#    #+#             */
-/*   Updated: 2016/02/26 16:02:05 by qduperon         ###   ########.fr       */
+/*   Created: 2016/02/26 15:45:48 by qduperon          #+#    #+#             */
+/*   Updated: 2016/02/26 17:34:16 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int ac, char **av)
+void	ft_error_directory(char *s)
 {
-	t_struct	flags;
+	ft_putstr("ft_ls: ");
+	ft_putstr(s);
+	ft_putendl(": No such a file or directory");
+	exit(1);
+}
 
-	ft_parser(ac, av, flags);
-	ft_do_ls();
-	return (0);
+void	ft_error_flags(char c)
+{
+	ft_putstr("ft_ls: illegal option -- ");
+	ft_putchar(c);
+	ft_putchar('\n');
+	ft_putendl("usage: ft_ls [-Ralrt] [file ...]");
+	exit(1);
 }

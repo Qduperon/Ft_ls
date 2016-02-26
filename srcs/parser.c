@@ -6,24 +6,36 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:25:13 by qduperon          #+#    #+#             */
-/*   Updated: 2016/02/26 14:33:15 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/02/26 17:34:11 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-
-static void	ft_error_directory(char **av)
+static t_struct	ft_check_flag(char *s, t_struct flags)
 {
-	char	*str;
-	
-	str = av[1];
-	ft_putstr("ls: ");
-	ft_putstr(str);
-	ft_putendl(": No such file or directory");
-	exit(1);
+	int		i;
+
+	i = 0;
+	ft_ini_struct(flags);
+	while (s[++i])
+	{
+		if (s[i] == 'a')
+			flags.a = 1;
+		else if (s[i] == 'l')
+			flags.l = 1;
+		else if (s[i] == 'R')
+			flags.rec = 1;
+		else if (s[i] == 'r')
+			flags.r = 1;
+		else if (s[i] == 't')
+			flags.t = 1;
+		else
+			ft_error_flags(s[i]);
+	}
+	return (flags);
 }
 
-static int	ft_check_directory(char **av)
+static int	ft_check_directory(char *s)
 {
 	DIR				*directory;
 	struct dirent 	*files;
@@ -36,21 +48,37 @@ static int	ft_check_directory(char **av)
 		i = -1;
 		while (files->d_name[++i])
 		{
-			if (ft_strcmp(av[1], &files->d_name[i]) == 0)
+			if (ft_strcmp(s, &files->d_name[i]) == 0)
 				return (0);
 		}
 	}
 	return (-1);
 }
 
-int		ft_parser(int ac, char **av)
+int		ft_parser(int ac, char **av, t_struct flags)
 {
-	char	flags;
+	int i;
+	int j;
 
-	flags = 0;
+	i = 1;
+	j = 0;
 	if (!(av[1]) || ft_strcmp(av[1], "--") == 0)
 		return (0);
-	else if (ft_check_directory(av))
-		ft_error_directory(av);
+	while (i < ac && j == 0)
+	{
+		if (av[i][0] == '-' && av[i][1] != '-')
+			flags = ft_check_flag(av[i], flags);
+		else if (av[i][0] == '-' && av[i][1] == '-')
+			i++;
+		else if (av[i][0] != '-')
+			j = 1;
+		i++;
+	}
+	while (i < ac)
+	{	
+		if (ft_check_directory(av[i]))
+			ft_error_directory(av[i]);
+		i++;
+	}
 	return (0);
 }
