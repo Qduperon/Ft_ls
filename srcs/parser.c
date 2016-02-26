@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:25:13 by qduperon          #+#    #+#             */
-/*   Updated: 2016/02/26 17:34:11 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/02/26 17:45:14 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -67,12 +67,14 @@ int		ft_parser(int ac, char **av, t_struct flags)
 	while (i < ac && j == 0)
 	{
 		if (av[i][0] == '-' && av[i][1] != '-')
+		{
 			flags = ft_check_flag(av[i], flags);
+			i++;
+		}
 		else if (av[i][0] == '-' && av[i][1] == '-')
 			i++;
 		else if (av[i][0] != '-')
 			j = 1;
-		i++;
 	}
 	while (i < ac)
 	{	
