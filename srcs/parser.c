@@ -6,17 +6,36 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:25:13 by qduperon          #+#    #+#             */
-/*   Updated: 2016/02/26 17:45:14 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/03/03 18:40:43 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
-static t_struct	ft_check_flag(char *s, t_struct flags)
+
+t_struct	ft_parser2(t_struct flags, int ac, char **av, int i)
+{
+	int c;
+
+	c = 0;
+	while (i < ac)
+	{
+		if (ft_check_directory(av[i]))
+			ft_error_directory(av[i]);
+		else
+		{
+		//	ft_strcpy(flags.str[c], av[i]);
+			c++;
+		}
+		i++;
+	}
+	return (flags);
+}
+
+t_struct	ft_check_flag(char *s, t_struct flags)
 {
 	int		i;
 
 	i = 0;
-	ft_ini_struct(flags);
 	while (s[++i])
 	{
 		if (s[i] == 'a')
@@ -35,7 +54,7 @@ static t_struct	ft_check_flag(char *s, t_struct flags)
 	return (flags);
 }
 
-static int	ft_check_directory(char *s)
+int	 ft_check_directory(char *s)
 {
 	DIR				*directory;
 	struct dirent 	*files;
@@ -55,7 +74,7 @@ static int	ft_check_directory(char *s)
 	return (-1);
 }
 
-int		ft_parser(int ac, char **av, t_struct flags)
+t_struct	ft_parser(int ac, char **av, t_struct flags)
 {
 	int i;
 	int j;
@@ -63,7 +82,7 @@ int		ft_parser(int ac, char **av, t_struct flags)
 	i = 1;
 	j = 0;
 	if (!(av[1]) || ft_strcmp(av[1], "--") == 0)
-		return (0);
+		return (flags);
 	while (i < ac && j == 0)
 	{
 		if (av[i][0] == '-' && av[i][1] != '-')
@@ -76,11 +95,7 @@ int		ft_parser(int ac, char **av, t_struct flags)
 		else if (av[i][0] != '-')
 			j = 1;
 	}
-	while (i < ac)
-	{	
-		if (ft_check_directory(av[i]))
-			ft_error_directory(av[i]);
-		i++;
-	}
-	return (0);
+	flags = ft_parser2(flags, ac, av, i);
+	ft_print_opt(flags);
+	return (flags);
 }
