@@ -12,6 +12,8 @@
 
 #include "ft_ls.h"
 
+char	*tab[MAX_FD];
+
 int		main(int ac, char **av)
 {
 	t_struct	flags;
@@ -19,6 +21,7 @@ int		main(int ac, char **av)
 	ft_ini_struct(flags);
 	flags = ft_parser(ac, av, flags);
 	ft_print_opt(flags);
+	ft_clear_tab(tab);
  //	ft_check_opt(flags);
  //	ft_do_ls();
 	return (0);

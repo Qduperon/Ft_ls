@@ -33,6 +33,10 @@ void	ft_print_opt(t_struct flags)
 	ft_putnbr(flags.t);
 	ft_putchar('\n');
 	ft_putendl("Files :");
-	//if (flags.str[0])
-	//	ft_putstr(flags.str[0]);
+	while (tab[i])
+	{
+		ft_putstr(tab[i]);
+		ft_putchar('\n');
+		i++;
+	}
 }

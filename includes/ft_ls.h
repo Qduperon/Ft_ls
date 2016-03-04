@@ -21,6 +21,8 @@
 
 # define MAX_FD 256
 
+extern char *tab[MAX_FD];
+
 typedef	struct		s_struct
 {
 	int	a;
@@ -28,7 +30,6 @@ typedef	struct		s_struct
 	int rec;
 	int r;
 	int	t;
-	char *str[MAX_FD];
 }					t_struct;
 
 int					ft_do_ls(void);
@@ -37,6 +38,8 @@ t_struct			ft_check_flag(char *s, t_struct flags);
 t_struct			ft_fill_the_array(t_struct flags, char *s, int i, int item);
 t_struct			ft_parser(int ac, char **av, t_struct flags);
 t_struct			ft_ini_struct(t_struct flags);
+void				ft_clear_tab(char **tab);
+void				ft_get_tab(char **tab, int i, char *s);
 void				ft_error_directory(char *s);
 void				ft_error_flags(char c);
 void				ft_print_opt(t_struct flags);

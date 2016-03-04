@@ -23,7 +23,7 @@ t_struct	ft_parser2(t_struct flags, int ac, char **av, int i)
 			ft_error_directory(av[i]);
 		else
 		{
-		//	ft_strcpy(flags.str[c], av[i]);
+			ft_get_tab(tab, c, av[i]);
 			c++;
 		}
 		i++;
