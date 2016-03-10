@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/02 18:01:59 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/03 15:52:56 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/03/07 17:16:07 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,9 +33,9 @@ void	ft_print_opt(t_struct flags)
 	ft_putnbr(flags.t);
 	ft_putchar('\n');
 	ft_putendl("Files :");
-	while (tab[i])
+	while (flags.tab[i])
 	{
-		ft_putstr(tab[i]);
+		ft_putstr(flags.tab[i]);
 		ft_putchar('\n');
 		i++;
 	}

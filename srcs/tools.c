@@ -1,32 +1,39 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   error.c                                            :+:      :+:    :+:   */
+/*   tools.c                                            :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/26 15:45:48 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/10 18:33:45 by qduperon         ###   ########.fr       */
+/*   Created: 2016/03/07 18:30:48 by qduperon          #+#    #+#             */
+/*   Updated: 2016/03/07 18:45:06 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_error(char *s)
+int		ft_strlen_slash(char *s)
 {
-	ft_putstr_fd("ft_ls: ", 2);
-	ft_putstr_fd(s, 2);
-	ft_putchar_fd(":", 2);
-	ft_putchar_fd(" ");
-	ft_putendl_fd(strerror(errno), 2);
-	exit(1);
+	int i;
+
+	i = 0;
+
+	while (s[i] && s[i] != '/')
+		i++;
+	return (i);
 }
 
-void	ft_error_flags(char c)
+int		ft_check_after_slash(char *s)
 {
-	ft_putstr_fd("ft_ls: illegal option -- ", 2);
-	ft_putchar_fd(c, 2);
-	ft_putchar_fd('\n', 2);
-	ft_putendl_fd("usage: ft_ls [-ARalrt1cgu] [file ...]", 2);
-	exit(1);
+	int i;
+
+	i = 0;
+	while (s[i] && s[i] != '/')
+		i++;
+	while (s[i] && s[i] == '/')
+		i++;
+	if (s[i])
+		return (1);
+	else
+		return (0);
 }
