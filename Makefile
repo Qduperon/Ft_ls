@@ -21,12 +21,13 @@ NAME = ft_ls
 #==============================================================================#
 
 SRCS = srcs/base_ls.c \
-	   srcs/error.c \
-	   srcs/init.c \
-	   srcs/main.c \
-	   srcs/parser.c \
-	   srcs/print.c \
-	   srcs/tools.c \
+	srcs/data.c \
+	srcs/error.c \
+	srcs/init.c \
+	srcs/main.c \
+	srcs/parser.c \
+	srcs/tools.c \
+	srcs/tools_info.c \
 
 #==============================================================================#
 #                              //  FLAGS  \\                                   #

@@ -17,7 +17,7 @@ int		ft_do_ls(char *directory_name, t_opt flags)
 	t_list	*list;
 	t_sort	*f_sort;
 
-	if (!(list = catch_data(directory_name, flags)))
+	if (!(list = ft_catch_data(directory_name, flags)))
 		ft_error(directory_name);
 	f_sort = select_sort(opt);
 	return (0);
