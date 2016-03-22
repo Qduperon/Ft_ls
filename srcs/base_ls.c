@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:24:33 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/10 18:51:04 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/03/22 18:07:52 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,6 +19,6 @@ int		ft_do_ls(char *directory_name, t_opt flags)
 
 	if (!(list = ft_catch_data(directory_name, flags)))
 		ft_error(directory_name);
-	f_sort = select_sort(opt);
+//	f_sort = select_sort(flags);
 	return (0);
 }

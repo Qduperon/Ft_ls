@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:30:48 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/07 18:45:06 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/03/22 16:49:10 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,7 +19,7 @@ void	ft_get_info(struct stat *tmp_stat, t_ls *tmp)
 	tmp->size = (size_t)(tmp_stat->st_size);
 	tmp->atime = tmp_stat->st_atime;
 	tmp->mtime = tmp_stat->st_mtime;
-	tmp->stime = tmp_stat->ctime;
+	tmp->stime = tmp_stat->st_ctime;
 }
 
 char	*ft_build_path(char *d_name, char *path)

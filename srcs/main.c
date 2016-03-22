@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 18:50:40 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/10 18:51:12 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/03/22 16:45:24 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,10 +14,11 @@
 
 int		main(int ac, char **av)
 {
+	t_opt	flags;
 	int 	item;
 	
-	item = ft_parser(ac, av, &flags);
-	if (item == ac)
+	item = ft_parser_opt(ac, av, &flags);
+		if (item == ac)
 		ft_do_ls(".", flags);
 	return (0);
 }

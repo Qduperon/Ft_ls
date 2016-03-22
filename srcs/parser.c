@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/26 13:25:13 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/10 18:09:37 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/03/22 16:23:48 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,16 +14,16 @@
 
 static void		ft_check_flag(char s, t_opt *flags)
 {
-		if (s == 'a')
-			flags->a = 1;
-		 if (s == 'l')
-			flags->l = 1;
-		if (s == 'R')
-			flags->rec = 1;
-		if (s == 'r')
-			flags->r = 1;
-		if (s == 't')
-			flags->t = 1;
+	if (s == 'a')
+		flags->a = 1;
+	if (s == 'l')
+		flags->l = 1;
+	if (s == 'R')
+		flags->rec = 1;
+	if (s == 'r')
+		flags->r = 1;
+	if (s == 't')
+		flags->t = 1;
 }
 
 static void		ft_pars_opt(char *str, t_opt *flags)
@@ -41,7 +41,7 @@ static void		ft_pars_opt(char *str, t_opt *flags)
 	}
 }
 
-int		ft_parser_opt(int ac, char **av, t_opt *flags)
+int				ft_parser_opt(int ac, char **av, t_opt *flags)
 {
 	int i;
 
@@ -52,7 +52,7 @@ int		ft_parser_opt(int ac, char **av, t_opt *flags)
 	while (i < ac && av[i][0] == '-')
 	{
 		if (!av[i][1])
-			return(i);
+			return (i);
 		ft_pars_opt(av[i], flags);
 		i++;
 	}
