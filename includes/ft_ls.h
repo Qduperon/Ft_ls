@@ -28,6 +28,7 @@
 # include <time.h>
 # include <unistd.h>
 
+# define BUFF 1024
 # define OPTION "Ralrt"
 
 typedef	struct		s_ls
@@ -55,10 +56,14 @@ typedef	struct		s_option
 	int		t;
 }					t_opt;
 
-typedef int		(*t_sort)(t_ls*, t_ls*);
+typedef int	(*t_exit)(*t_ls, *t_ls);
 
 /* base_ls.c */
 int	ft_do_ls(char *directory_name, t_opt flags);
+t_exit	ft_select_exit(t_opt flags);
+
+/* class.c */
+void	ft_exit(t_list **list, t_exit exit, t_opt flags);
 
 /* data.c */
 t_list	*ft_catch_data(char *arg, t_opt flags);
@@ -76,6 +81,7 @@ int	ft_parser_opt(int ac, char **av, t_opt *flags);
 /* tools.c */
 char	*ft_build_path(char *d_name, char *path);
 void	ft_get_info(struct stat *tmp_stat, t_ls *tmp);
+void	ft_free_ls(t_ls *tmp, size_t size);
 
 /* tools_info.c */
 char	*ft_grab_grp(gid_t gid);

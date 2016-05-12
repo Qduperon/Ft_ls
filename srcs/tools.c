@@ -12,6 +12,16 @@
 
 #include "ft_ls.h"
 
+void	ft_free_ls(t_ls *tmp, size_t size)
+{
+	free(tmp->name);
+	free(tmp->link);
+	free(tmp->u_name);
+	free(tmp->g_name);
+	free(tmp->right);
+	ft_bzero(tmp, size);
+}
+
 void	ft_get_info(struct stat *tmp_stat, t_ls *tmp)
 {
 	tmp->nb_block = (int)(tmp_stat->st_blocks);

@@ -12,6 +12,19 @@
 
 #include "ft_ls.h"
 
+static char	*ft_readlink(t_ls tmp, char *path)
+{
+	char	*link;
+	
+	if (!(link = ft_strnew(BUFF)))
+		return (NULL);
+	if (tmp.type == l)
+		if (readlink(path, link, BUFF) > 0)
+			return (link);
+	free(link);
+	return (NULL);
+}
+
 static t_list	*ft_get_file(char *d_name, struct stat *tmp_stat, char *path)
 {
 	t_list 	*list;
@@ -27,6 +40,12 @@ static t_list	*ft_get_file(char *d_name, struct stat *tmp_stat, char *path)
 			!(tmp.u_name = ft_grab_uid(tmp_stat->st_uid)) ||\
 			!(tmp.g_name = ft_grab_grp(tmp_stat->st_gid)))
 		return (NULL);
+	tmp.link = ft_readlink(tmp, path);
+	if (!(list = ft_lstnew(&tmp, sizeof(tmp))))
+	{
+		ft_free_ls(&tmp, tmp.size);
+		return (NULL);
+	}
 	return (list);
 }
 
