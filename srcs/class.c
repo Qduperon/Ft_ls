@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   class.c                                            :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/12 15:10:53 by qduperon          #+#    #+#             */
+/*   Updated: 2016/05/12 16:17:21 by qduperon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 static t_list	*ft_split(t_list *list)
@@ -23,7 +35,7 @@ static	t_list	*ft_fusion(t_list *list, t_list *tmp, t_exit exit, t_opt flags)
 
 	signe = (flags.r) ? -1 : 1;
 	if (!list)
-		return (tmp)
+		return (tmp);
 	else if (!tmp)
 		return (list);
 	else if (signe * exit(list->content, tmp->content) < 0)
@@ -38,10 +50,10 @@ static	t_list	*ft_fusion(t_list *list, t_list *tmp, t_exit exit, t_opt flags)
 	}
 }
 
-void	ft_exit(t_list **list, t_exit exit, t_opt flags)
+void			ft_exit(t_list **list, t_exit exit, t_opt flags)
 {
 	t_list *tmp;
-	
+
 	if (*list)
 		if ((*list)->next)
 		{

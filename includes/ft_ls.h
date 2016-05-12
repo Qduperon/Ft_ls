@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:06:17 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/22 18:25:00 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/12 18:01:10 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -50,43 +50,33 @@ typedef	struct		s_ls
 typedef	struct		s_option
 {
 	int		a;
-	int 	l;
-	int 	rec;
-	int 	r;
+	int		l;
+	int		rec;
+	int		r;
 	int		t;
 }					t_opt;
 
-typedef int	(*t_exit)(*t_ls, *t_ls);
-
-/* base_ls.c */
-int	ft_do_ls(char *directory_name, t_opt flags);
-t_exit	ft_select_exit(t_opt flags);
-
-/* class.c */
-void	ft_exit(t_list **list, t_exit exit, t_opt flags);
-
-/* data.c */
-t_list	*ft_catch_data(char *arg, t_opt flags);
-
-/* error.c */
-void	ft_error(char *s);
-void	ft_error_flags(char c);
-
-/* init.c */
-void	ft_ini_struct(t_opt *flags);
-
-/* parser.c */
-int	ft_parser_opt(int ac, char **av, t_opt *flags);
-
-/* tools.c */
-char	*ft_build_path(char *d_name, char *path);
-void	ft_get_info(struct stat *tmp_stat, t_ls *tmp);
-void	ft_free_ls(t_ls *tmp, size_t size);
-
-/* tools_info.c */
-char	*ft_grab_grp(gid_t gid);
-char	*ft_grab_uid(uid_t uid);
-char	ft_grab_type(struct stat *tmp_stat);
-char	*ft_grab_right(struct stat *tmp_stat, char *path);
+typedef int			(*t_exit)(t_ls*, t_ls*);
+int					ft_do_ls(char *directory_name, t_opt flags);
+t_exit				ft_select_exit(t_opt flags);
+void				ft_exit(t_list **list, t_exit exit, t_opt flags);
+t_list				*ft_catch_data(char *arg, t_opt flags);
+void				ft_link(char *arg, t_opt flags,
+		struct dirent *d, t_list **lst);
+void				ft_error(char *s);
+void				ft_error_flags(char c);
+int					ft_ascii_cmp(t_ls *content, t_ls *content2);
+int					ft_mtime_cmp(t_ls *content, t_ls *content2);
+void				ft_ini_struct(t_opt *flags);
+int					ft_parser_opt(int ac, char **av, t_opt *flags);
+char				*ft_build_path(char *d_name, char *path);
+void				ft_get_info(struct stat *tmp_stat, t_ls *tmp);
+void				ft_free_ls(t_ls *tmp, size_t size);
+char				*ft_grab_grp(gid_t gid);
+char				*ft_grab_uid(uid_t uid);
+char				ft_grab_type(struct stat *tmp_stat);
+char				*ft_grab_right(struct stat *tmp_stat, char *path);
+void				ft_print(t_list *list, t_opt flags);
+void				ft_print_ls(t_list *list, t_opt flags);
 
 #endif

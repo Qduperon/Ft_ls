@@ -1,24 +1,28 @@
 /* ************************************************************************** */
 /*                                                                            */
 /*                                                        :::      ::::::::   */
-/*   main.c                                             :+:      :+:    :+:   */
+/*   exit.c                                             :+:      :+:    :+:   */
 /*                                                    +:+ +:+         +:+     */
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
-/*   Created: 2016/02/23 18:50:40 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/12 15:14:38 by qduperon         ###   ########.fr       */
+/*   Created: 2016/05/12 16:03:50 by qduperon          #+#    #+#             */
+/*   Updated: 2016/05/12 18:05:10 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-int		main(int ac, char **av)
+int		ft_ascii_cmp(t_ls *content, t_ls *content2)
 {
-	t_opt	flags;
-	int		item;
+	return (ft_strcmp(content->name, content2->name));
+}
 
-	item = ft_parser_opt(ac, av, &flags);
-	if (item == ac)
-		ft_do_ls(".", flags);
-	return (0);
+int		ft_mtime_cmp(t_ls *content, t_ls *content2)
+{
+	if (content->mtime > content2->mtime)
+		return (1);
+	else if (content->mtime < content2->mtime)
+		return (-1);
+	else
+		return (ft_ascii_cmp(content, content2));
 }

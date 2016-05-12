@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:30:48 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/22 16:49:10 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/12 15:15:21 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -36,7 +36,7 @@ char	*ft_build_path(char *d_name, char *path)
 {
 	char *tmp_path;
 	char *new_path;
-	
+
 	if (!(tmp_path = ft_strjoin(path, "/")))
 		return (NULL);
 	if (!(new_path = ft_strjoin(tmp_path, d_name)))

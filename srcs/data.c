@@ -6,19 +6,19 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 16:38:33 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/22 18:29:09 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/12 15:42:43 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-static char	*ft_readlink(t_ls tmp, char *path)
+static char		*ft_readlink(t_ls tmp, char *path)
 {
-	char	*link;
-	
+	char			*link;
+
 	if (!(link = ft_strnew(BUFF)))
 		return (NULL);
-	if (tmp.type == l)
+	if (tmp.type == 'l')
 		if (readlink(path, link, BUFF) > 0)
 			return (link);
 	free(link);
@@ -27,9 +27,9 @@ static char	*ft_readlink(t_ls tmp, char *path)
 
 static t_list	*ft_get_file(char *d_name, struct stat *tmp_stat, char *path)
 {
-	t_list 	*list;
-	t_ls	tmp;
-	
+	t_list			*list;
+	t_ls			tmp;
+
 	errno = 0;
 	if (!d_name || !tmp_stat)
 		return (NULL);
@@ -51,50 +51,50 @@ static t_list	*ft_get_file(char *d_name, struct stat *tmp_stat, char *path)
 
 static t_list	*ft_build_link(char *arg, char *d_name)
 {
-	char		*path;
-	struct stat	tmp_stat;
-	t_list		*list;
+	char			*path;
+	struct stat		tmp_stat;
+	t_list			*list;
 
 	if (!(path = ft_build_path(d_name, arg)))
 		return (NULL);
 	if (!(lstat(path, &tmp_stat)))
-	 	ft_error(path);
+		ft_error(path);
 	if (!(list = ft_get_file(d_name, &tmp_stat, path)))
 		return (NULL);
 	free(path);
 	return (list);
 }
 
-static void	ft_directory_link(char *arg, t_opt flags, struct dirent *directory, t_list **list)
+void			ft_link(char *arg, t_opt flags, struct dirent *d, t_list **lst)
 {
-	t_list	*tmp;
-	
+	t_list			*tmp;
+
 	if (flags.a)
 	{
-		if (!(tmp = ft_build_link(arg, directory->d_name)))
+		if (!(tmp = ft_build_link(arg, d->d_name)))
 			return ;
-		ft_lstadd(list, tmp);
+		ft_lstadd(lst, tmp);
 	}
-	else if (*(directory->d_name) != '.')
+	else if (*(d->d_name) != '.')
 	{
-		if (!(tmp = ft_build_link(arg, directory->d_name)))
+		if (!(tmp = ft_build_link(arg, d->d_name)))
 			return ;
-		ft_lstadd(list, tmp);
+		ft_lstadd(lst, tmp);
 	}
 }
 
-t_list		*ft_catch_data(char *arg, t_opt flags)
+t_list			*ft_catch_data(char *arg, t_opt flags)
 {
 	DIR				*tmp;
 	struct dirent	*directory;
 	t_list			*list;
-	
+
 	list = NULL;
 	errno = 0;
 	if ((tmp = opendir(arg)))
 	{
 		while ((directory = readdir(tmp)))
-			ft_directory_link(arg, flags, directory, &list);
+			ft_link(arg, flags, directory, &list);
 		closedir(tmp);
 	}
 	return (list);

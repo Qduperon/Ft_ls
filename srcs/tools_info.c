@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 16:24:29 by qduperon          #+#    #+#             */
-/*   Updated: 2016/03/22 18:21:47 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/12 15:31:04 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -66,9 +66,9 @@ char	ft_grab_type(struct stat *tmp_stat)
 char	*ft_grab_right(struct stat *tmp_stat, char *path)
 {
 	char *rights;
-	
+
 	if (!(rights = ft_strnew(10)))
-			return (NULL);
+		return (NULL);
 	rights[0] = (tmp_stat->st_mode & S_IRWXU) ||\
 				(tmp_stat->st_mode & S_IRWXU) ? 'r' : '-';
 	rights[1] = (tmp_stat->st_mode & S_IWUSR) ||\

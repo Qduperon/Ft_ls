@@ -6,7 +6,7 @@
 #    By: qduperon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/23 15:45:44 by qduperon          #+#    #+#              #
-#    Updated: 2016/03/07 18:45:51 by qduperon         ###   ########.fr        #
+#    Updated: 2016/05/12 17:24:58 by qduperon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -21,13 +21,16 @@ NAME = ft_ls
 #==============================================================================#
 
 SRCS = srcs/base_ls.c \
-	srcs/data.c \
-	srcs/error.c \
-	srcs/init.c \
-	srcs/main.c \
-	srcs/parser.c \
-	srcs/tools.c \
-	srcs/tools_info.c \
+	   srcs/class.c \
+	   srcs/data.c \
+	   srcs/error.c \
+	   srcs/exit.c \
+	   srcs/init.c \
+	   srcs/main.c \
+	   srcs/parser.c \
+	   srcs/print.c \
+	   srcs/tools.c \
+	   srcs/tools_info.c \
 
 #==============================================================================#
 #                              //  FLAGS  \\                                   #
