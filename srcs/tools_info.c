@@ -20,7 +20,7 @@ char	*ft_grab_grp(gid_t gid)
 	errno = 0;
 	if (!(group = getgrgid(gid)))
 	{
-		ft_putendl_fd(strerror(errno), 2);
+		ft_putendl(strerror(errno));
 		return (NULL);
 	}
 	if (!(grp = ft_strdup(((char *)group->gr_name))))
@@ -36,7 +36,7 @@ char	*ft_grab_uid(uid_t uid)
 	errno = 0;
 	if (!(password = getpwuid(uid)))
 	{
-		ft_putendl_fd(strerror(errno), 2);
+		ft_putendl(strerror(errno));
 		return (NULL);
 	}
 	if (!(person = ft_strdup(((char *)password->pw_name))))
@@ -88,5 +88,7 @@ char	*ft_grab_right(struct stat *tmp_stat, char *path)
 	rights[8] = (tmp_stat->st_mode & S_IXOTH) ||\
 				(tmp_stat->st_mode & S_IRWXO) ? 'x' : '-';
 	rights[9] = ' ';
+	ft_check_sticky(rights, tmp_stat);
+	ft_check_acl_extend(rights, path);
 	return (rights);
 }

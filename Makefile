@@ -30,6 +30,7 @@ SRCS = srcs/base_ls.c \
 	   srcs/parser.c \
 	   srcs/print.c \
 	   srcs/tools.c \
+		srcs/tools_data.c \
 	   srcs/tools_info.c \
 
 #==============================================================================#

@@ -78,5 +78,6 @@ char				ft_grab_type(struct stat *tmp_stat);
 char				*ft_grab_right(struct stat *tmp_stat, char *path);
 void				ft_print(t_list *list, t_opt flags);
 void				ft_print_ls(t_list *list, t_opt flags);
-
+void				ft_check_sticky(char *rights, struct stat *tmp_stat);
+void				ft_check_acl_extend(char *rights, char *path);
 #endif

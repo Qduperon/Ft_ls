@@ -58,7 +58,10 @@ static t_list	*ft_build_link(char *arg, char *d_name)
 	if (!(path = ft_build_path(d_name, arg)))
 		return (NULL);
 	if (!(lstat(path, &tmp_stat)))
+	{
 		ft_error(path);
+		exit(1);
+	}
 	if (!(list = ft_get_file(d_name, &tmp_stat, path)))
 		return (NULL);
 	free(path);

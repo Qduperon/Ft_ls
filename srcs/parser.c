@@ -34,7 +34,10 @@ static void		ft_pars_opt(char *str, t_opt *flags)
 	while (str[c])
 	{
 		if (!ft_strchr(OPTION, str[c]))
+		{
 			ft_error_flags(str[c]);
+			exit(1);
+		}
 		else
 			ft_check_flag(str[c], flags);
 		c++;

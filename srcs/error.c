@@ -14,19 +14,17 @@
 
 void	ft_error(char *s)
 {
-	ft_putstr_fd("ft_ls: ", 2);
-	ft_putstr_fd(s, 2);
-	ft_putchar_fd(':', 2);
-	ft_putchar_fd(' ', 2);
-	ft_putendl_fd(strerror(errno), 2);
-	exit(1);
+	ft_putstr("ft_ls: ");
+	ft_putstr(s);
+	ft_putchar(':');
+	ft_putchar(' ');
+	ft_putendl(strerror(errno));
 }
 
 void	ft_error_flags(char c)
 {
-	ft_putstr_fd("ft_ls: illegal option -- ", 2);
-	ft_putchar_fd(c, 2);
-	ft_putchar_fd('\n', 2);
-	ft_putendl_fd("usage: ft_ls [-ARalrt1cgu] [file ...]", 2);
-	exit(1);
+	ft_putstr("ft_ls: illegal option -- ");
+	ft_putchar(c);
+	ft_putchar('\n');
+	ft_putendl("usage: ft_ls [-ARalrt1cgu] [file ...]");
 }
