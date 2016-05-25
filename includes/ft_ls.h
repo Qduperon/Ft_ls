@@ -65,6 +65,7 @@ void				ft_link(char *arg, t_opt flags,
 		struct dirent *d, t_list **lst);
 void				ft_error(char *s);
 void				ft_error_flags(char c);
+t_list				*ft_get_file(char *d_name, struct stat *tmp_stat, char *path);
 int					ft_ascii_cmp(t_ls *content, t_ls *content2);
 int					ft_mtime_cmp(t_ls *content, t_ls *content2);
 void				ft_ini_struct(t_opt *flags);
@@ -80,4 +81,5 @@ void				ft_print(t_list *list, t_opt flags);
 void				ft_print_ls(t_list *list, t_opt flags);
 void				ft_check_sticky(char *rights, struct stat *tmp_stat);
 void				ft_check_acl_extend(char *rights, char *path);
+void				ft_split_arg(t_list **list_f, t_list **list_s, char **av, int n_av);
 #endif

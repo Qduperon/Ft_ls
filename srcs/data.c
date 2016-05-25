@@ -25,7 +25,7 @@ static char		*ft_readlink(t_ls tmp, char *path)
 	return (NULL);
 }
 
-static t_list	*ft_get_file(char *d_name, struct stat *tmp_stat, char *path)
+t_list			*ft_get_file(char *d_name, struct stat *tmp_stat, char *path)
 {
 	t_list			*list;
 	t_ls			tmp;
@@ -60,7 +60,7 @@ static t_list	*ft_build_link(char *arg, char *d_name)
 	if (!(lstat(path, &tmp_stat)))
 	{
 		ft_error(path);
-		exit(1);
+		return (NULL);;
 	}
 	if (!(list = ft_get_file(d_name, &tmp_stat, path)))
 		return (NULL);

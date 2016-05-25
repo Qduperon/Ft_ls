@@ -50,7 +50,10 @@ int				ft_do_ls(char *directory_name, t_opt flags)
 	t_exit	f_exit;
 
 	if (!(list = ft_catch_data(directory_name, flags)))
+	{
 		ft_error(directory_name);
+		return (1);
+	}
 	f_exit = ft_select_exit(flags);
 	ft_exit(&list, (t_exit)f_exit, flags);
 	ft_print(list, flags);

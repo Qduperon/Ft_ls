@@ -14,20 +14,27 @@
 
 void	ft_print_ls(t_list *list, t_opt flags)
 {
-	while (list)
+	if (ioctl(1, TIOCGWINSZ) == -1)
 	{
-		ft_putendl(((t_ls*)(list->content))->name);
-		list = list->next;
+		ft_putendl(strerror(errno));
+		return ;
 	}
+	{
+		while (list)
+		{	
+			ft_putendl(((t_ls*)(list->content))->name);
+			list = list->next;
+		}
+	}
+		ft_putendl("FIN");
 }
 
 static void	(*ft_select(t_opt flags))(t_list*, t_opt)
 {
-	//if (flags.l)
-	//	return (ft_print_l);
-	//else
-	return (ft_print_ls);
-		//return (void(*)(t_list*, t_opt))(ft_print_ls);
+ //	if (flags.l)
+//		return (ft_print_l);
+//	else
+		return (void(*)(t_list*, t_opt))(ft_print_ls);
 }
 
 void	ft_print(t_list *list, t_opt flags)

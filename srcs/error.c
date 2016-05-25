@@ -26,5 +26,5 @@ void	ft_error_flags(char c)
 	ft_putstr("ft_ls: illegal option -- ");
 	ft_putchar(c);
 	ft_putchar('\n');
-	ft_putendl("usage: ft_ls [-ARalrt1cgu] [file ...]");
+	ft_putendl("usage: ft_ls [-Ralrt] [file ...]");
 }

@@ -25,6 +25,7 @@ SRCS = srcs/base_ls.c \
 	   srcs/data.c \
 	   srcs/error.c \
 	   srcs/exit.c \
+		srcs/arg.c \
 	   srcs/init.c \
 	   srcs/main.c \
 	   srcs/parser.c \

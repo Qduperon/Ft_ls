@@ -69,24 +69,15 @@ char	*ft_grab_right(struct stat *tmp_stat, char *path)
 
 	if (!(rights = ft_strnew(10)))
 		return (NULL);
-	rights[0] = (tmp_stat->st_mode & S_IRWXU) ||\
-				(tmp_stat->st_mode & S_IRWXU) ? 'r' : '-';
-	rights[1] = (tmp_stat->st_mode & S_IWUSR) ||\
-				(tmp_stat->st_mode & S_IRWXU) ? 'w' : '-';
-	rights[2] = (tmp_stat->st_mode & S_IXUSR) ||\
-				(tmp_stat->st_mode & S_IRWXU) ? 'x' : '-';
-	rights[3] = (tmp_stat->st_mode & S_IRGRP) ||\
-				(tmp_stat->st_mode & S_IRWXG) ? 'r' : '-';
-	rights[4] = (tmp_stat->st_mode & S_IWGRP) ||\
-				(tmp_stat->st_mode & S_IRWXG) ? 'w' : '-';
-	rights[5] = (tmp_stat->st_mode & S_IXGRP) ||\
-				(tmp_stat->st_mode & S_IRWXG) ? 'x' : '-';
-	rights[6] = (tmp_stat->st_mode & S_IROTH) ||\
-				(tmp_stat->st_mode & S_IRWXO) ? 'r' : '-';
-	rights[7] = (tmp_stat->st_mode & S_IWOTH) ||\
-				(tmp_stat->st_mode & S_IRWXO) ? 'w' : '-';
-	rights[8] = (tmp_stat->st_mode & S_IXOTH) ||\
-				(tmp_stat->st_mode & S_IRWXO) ? 'x' : '-';
+	rights[0] = (tmp_stat->st_mode & S_IRWXU) ? 'r' : '-';
+	rights[1] = (tmp_stat->st_mode & S_IWUSR) ? 'w' : '-';
+	rights[2] = (tmp_stat->st_mode & S_IXUSR) ? 'x' : '-';
+	rights[3] = (tmp_stat->st_mode & S_IRGRP) ? 'r' : '-';
+	rights[4] = (tmp_stat->st_mode & S_IWGRP) ? 'w' : '-';
+	rights[5] = (tmp_stat->st_mode & S_IXGRP) ? 'x' : '-';
+	rights[6] = (tmp_stat->st_mode & S_IROTH) ? 'r' : '-';
+	rights[7] = (tmp_stat->st_mode & S_IWOTH) ? 'w' : '-';
+	rights[8] = (tmp_stat->st_mode & S_IXOTH) ? 'x' : '-';
 	rights[9] = ' ';
 	ft_check_sticky(rights, tmp_stat);
 	ft_check_acl_extend(rights, path);
