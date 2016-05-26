@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 18:50:40 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/12 15:14:38 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/26 17:52:07 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -37,14 +37,14 @@ static void	ft_deal_dir(t_list *list_d, t_opt flags, int ac, int item)
 	}
 }
 
-int		main(int ac, char **av)
+int			main(int ac, char **av)
 {
-	t_opt	flags;
-	int		item;
-	t_list *list_f;
-	t_list *list_s;
-	t_exit select_arg;
-	
+	t_opt		flags;
+	int			item;
+	t_list		*list_f;
+	t_list		*list_s;
+	t_exit		select_arg;
+
 	list_f = NULL;
 	list_s = NULL;
 	item = ft_parser_opt(ac, av, &flags);
@@ -61,7 +61,6 @@ int		main(int ac, char **av)
 			ft_putchar('\n');
 		ft_deal_dir(list_s, flags, ac, item);
 		ft_free_arg(&list_f, &list_s);
-		
 	}
 	return (0);
 }

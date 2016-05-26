@@ -1,8 +1,20 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   arg.c                                              :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/26 17:46:47 by qduperon          #+#    #+#             */
+/*   Updated: 2016/05/26 17:49:26 by qduperon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 static t_list	*ft_make_arg(char *av)
 {
-	t_list *list;
+	t_list		*list;
 	struct stat	tmp_stat;
 
 	if (lstat(av, &tmp_stat) == -1)
@@ -15,10 +27,10 @@ static t_list	*ft_make_arg(char *av)
 	return (list);
 }
 
-static void 	ft_get_arg(t_list **list_f, t_list **list_s, char *av)
+static void		ft_get_arg(t_list **list_f, t_list **list_s, char *av)
 {
-	DIR	*tmp_open;
-	t_list	*tmp_list;
+	DIR			*tmp_open;
+	t_list		*tmp_list;
 
 	if (!(tmp_list = ft_make_arg(av)))
 		return ;
@@ -36,9 +48,10 @@ static void 	ft_get_arg(t_list **list_f, t_list **list_s, char *av)
 		closedir(tmp_open);
 }
 
-void	ft_split_arg(t_list **list_f, t_list **list_s, char **av, int n_av)
+void			ft_split_arg(t_list **list_f, t_list **list_s,
+		char **av, int n_av)
 {
-	int i;
+	int			i;
 
 	i = 0;
 	while (i < n_av)

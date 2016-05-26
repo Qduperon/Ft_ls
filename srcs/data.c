@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/22 16:38:33 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/12 15:42:43 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/26 18:46:56 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,10 +57,10 @@ static t_list	*ft_build_link(char *arg, char *d_name)
 
 	if (!(path = ft_build_path(d_name, arg)))
 		return (NULL);
-	if (!(lstat(path, &tmp_stat)))
+	if (lstat(path, &tmp_stat) == -1)
 	{
 		ft_error(path);
-		return (NULL);;
+		return (NULL);
 	}
 	if (!(list = ft_get_file(d_name, &tmp_stat, path)))
 		return (NULL);

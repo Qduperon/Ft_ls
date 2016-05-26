@@ -1,3 +1,15 @@
+/* ************************************************************************** */
+/*                                                                            */
+/*                                                        :::      ::::::::   */
+/*   tools_data.c                                       :+:      :+:    :+:   */
+/*                                                    +:+ +:+         +:+     */
+/*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
+/*                                                +#+#+#+#+#+   +#+           */
+/*   Created: 2016/05/26 17:55:39 by qduperon          #+#    #+#             */
+/*   Updated: 2016/05/26 17:57:49 by qduperon         ###   ########.fr       */
+/*                                                                            */
+/* ************************************************************************** */
+
 #include "ft_ls.h"
 
 void	ft_check_sticky(char *rights, struct stat *tmp_stat)
@@ -18,7 +30,7 @@ void	ft_check_sticky(char *rights, struct stat *tmp_stat)
 	}
 	if (tmp_stat->st_mode & S_ISVTX)
 	{
-		if (rights[8] ==  'x')
+		if (rights[8] == 'x')
 			rights[8] = 'T';
 		else
 			rights[8] = 't';
@@ -27,10 +39,10 @@ void	ft_check_sticky(char *rights, struct stat *tmp_stat)
 
 void	ft_check_acl_extend(char *rights, char *path)
 {
-	char buff[BUFF];
-	ssize_t nb_xat;
-	acl_t tmp;
-	
+	char	buff[BUFF];
+	ssize_t	nb_xat;
+	acl_t	tmp;
+
 	errno = 0;
 	if ((tmp = acl_get_file(path, ACL_TYPE_EXTENDED)))
 	{

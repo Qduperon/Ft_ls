@@ -6,7 +6,7 @@
 #    By: qduperon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/23 15:45:44 by qduperon          #+#    #+#              #
-#    Updated: 2016/05/12 17:24:58 by qduperon         ###   ########.fr        #
+#    Updated: 2016/05/26 17:41:08 by qduperon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -25,13 +25,15 @@ SRCS = srcs/base_ls.c \
 	   srcs/data.c \
 	   srcs/error.c \
 	   srcs/exit.c \
-		srcs/arg.c \
+	   srcs/arg.c \
 	   srcs/init.c \
 	   srcs/main.c \
 	   srcs/parser.c \
 	   srcs/print.c \
+	   srcs/print_l.c \
+	   srcs/time.c \
 	   srcs/tools.c \
-		srcs/tools_data.c \
+	   srcs/tools_data.c \
 	   srcs/tools_info.c \
 
 #==============================================================================#
