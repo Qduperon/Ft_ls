@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:06:17 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 16:07:45 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:17:34 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -56,6 +56,14 @@ typedef	struct		s_option
 	int		t;
 }					t_opt;
 
+typedef struct		s_max
+{
+	int		max_link;
+	int		max_uname;
+	int		max_gname;
+	int		max_size;
+}					t_max;
+
 typedef int			(*t_exit)(t_ls*, t_ls*);
 int					ft_do_ls(char *directory_name, t_opt flags);
 t_exit				ft_select_exit(t_opt flags);
@@ -86,5 +94,7 @@ void				ft_split_arg(t_list **list_f, t_list **list_s,
 		char **av, int n_av);
 void				ft_print_long(t_list *list, t_opt flags);
 char				*ft_take_time(time_t time_file);
-
+void				ft_fill_max(t_max *max, t_list *list);
+void				ft_putstr_left(char *str, int with);
+void				ft_putstr_right(char *str, int with);
 #endif

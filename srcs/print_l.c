@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 15:36:16 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 17:03:39 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:27:05 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -33,18 +33,18 @@ static void		ft_print_time(time_t time)
 	free(str);
 }
 
-static void		ft_take_long(t_list *list, t_opt flags)
+static void		ft_take_long(t_list *list, t_opt flags, t_max max)
 {
 	ft_putchar(((t_ls*)(list->content))->type);
 	ft_putstr(((t_ls*)(list->content))->right);
 	ft_putchar(' ');
-	ft_putnbr(((t_ls*)(list->content))->nb_link);
+	ft_putstr_right(ft_itoa(((t_ls*)(list->content))->nb_link), max.max_link);
 	ft_putchar(' ');
-	ft_putstr(((t_ls*)(list->content))->u_name);
+	ft_putstr_left(((t_ls*)(list->content))->u_name, max.max_uname);
 	ft_putchar(' ');
-	ft_putstr(((t_ls*)(list->content))->g_name);
+	ft_putstr_left(((t_ls*)(list->content))->g_name, max.max_gname);
 	ft_putstr("  ");
-	ft_putnbr(((t_ls*)(list->content))->size);
+	ft_putstr_right(ft_itoa(((t_ls*)(list->content))->size), max.max_size);
 	ft_putchar(' ');
 	ft_print_time(((t_ls*)(list->content))->mtime);
 	ft_putstr(((t_ls*)(list->content))->name);
@@ -66,6 +66,9 @@ static int		ft_block(t_list *list)
 
 void			ft_print_long(t_list *list, t_opt flags)
 {
+	t_max max;
+
+	ft_fill_max(&max, list);
 	if (!list)
 		return ;
 	ft_putstr("total ");
@@ -73,7 +76,7 @@ void			ft_print_long(t_list *list, t_opt flags)
 	ft_putchar('\n');
 	while (list)
 	{
-		ft_take_long(list, flags);
+		ft_take_long(list, flags, max);
 		list = list->next;
 	}
 }
