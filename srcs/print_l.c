@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 15:36:16 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 16:06:50 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:03:39 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -51,10 +51,26 @@ static void		ft_take_long(t_list *list, t_opt flags)
 	ft_print_link(((t_ls*)(list->content))->link);
 }
 
+static int		ft_block(t_list *list)
+{
+	int block;
+	
+	block = 0;
+	while (list)
+	{
+		block = block + ((t_ls*)(list->content))->nb_block;
+		list = list->next;
+	}
+	return (block);
+}
+
 void			ft_print_long(t_list *list, t_opt flags)
 {
 	if (!list)
 		return ;
+	ft_putstr("total ");
+	ft_putnbr(ft_block(list));
+	ft_putchar('\n');
 	while (list)
 	{
 		ft_take_long(list, flags);
