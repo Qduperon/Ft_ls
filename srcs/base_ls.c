@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/24 16:24:33 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/12 18:39:55 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/27 15:46:30 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -26,8 +26,8 @@ static	void	ft_recursive(t_list *list, char *directory_name, t_opt flags)
 
 	while (list)
 	{
-		if (!(path = ft_build_path(directory_name,
-						((t_ls *)(list->content))->name)))
+		if (!(path = ft_build_path(((t_ls *)(list->content))->name,
+						directory_name)))
 			return ;
 		if (((t_ls *)(list->content))->type == 'd'
 				&& ft_strcmp(((t_ls *)(list->content))->name, ".")
