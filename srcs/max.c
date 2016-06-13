@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 14:07:19 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 17:52:00 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 17:09:15 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -80,6 +80,8 @@ static int		ft_fill_size(t_list *list)
 
 void			ft_fill_max(t_max *max, t_list *list)
 {
+	max->max_major = ft_fill_major(list);
+	max->max_minor = ft_fill_minor(list);
 	max->max_link = ft_fill_link(list);
 	max->max_uname = ft_fill_uname(list);
 	max->max_gname = ft_fill_gname(list);

@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 16:08:50 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 16:09:00 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 14:16:25 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -57,8 +57,8 @@ char		*ft_take_time(time_t tm_file)
 		return (NULL);
 	if (!(stm_diff = localtime(&tm_diff)))
 		return (NULL);
-	if ((stm_diff->tm_mon >= 6) || (stm_diff->tm_year > 1970))
-		f = ft_take_year;
+	//if ((stm_diff->tm_mon >= 6) || (stm_diff->tm_year > 1970))
+	//	f = ft_take_year;
 	else
 		f = ft_get_time;
 	if (!(str = f(tm_file)))

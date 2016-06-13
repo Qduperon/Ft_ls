@@ -6,7 +6,7 @@
 #    By: qduperon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/23 15:45:44 by qduperon          #+#    #+#              #
-#    Updated: 2016/05/27 17:22:53 by qduperon         ###   ########.fr        #
+#    Updated: 2016/06/13 17:10:35 by qduperon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -36,6 +36,7 @@ SRCS = srcs/base_ls.c \
 	   srcs/tools.c \
 	   srcs/tools_data.c \
 	   srcs/tools_info.c \
+	   srcs/tools_max.c \
 	   srcs/tools_print.c \
 
 #==============================================================================#

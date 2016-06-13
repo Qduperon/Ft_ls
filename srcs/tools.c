@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:30:48 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/12 15:15:21 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 15:30:34 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -24,6 +24,8 @@ void	ft_free_ls(t_ls *tmp, size_t size)
 
 void	ft_get_info(struct stat *tmp_stat, t_ls *tmp)
 {
+	tmp->major = ft_get_major((int)(tmp_stat->st_rdev));
+	tmp->minor = ft_get_minor((int)(tmp_stat->st_rdev));
 	tmp->nb_block = (int)(tmp_stat->st_blocks);
 	tmp->nb_link = (int)(tmp_stat->st_nlink);
 	tmp->size = (size_t)(tmp_stat->st_size);
@@ -46,4 +48,19 @@ char	*ft_build_path(char *d_name, char *path)
 	}
 	free(tmp_path);
 	return (new_path);
+}
+
+int		ft_get_major(int dev)
+{
+	while ((dev / 256) > 0)
+	dev = dev / 256;
+	return (dev);
+}
+
+int		ft_get_minor(int dev)
+{
+	int minor;
+
+	minor = dev % 256;
+	return (minor);
 }

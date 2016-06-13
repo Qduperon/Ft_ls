@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:06:17 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 17:17:34 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 17:10:08 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -39,6 +39,8 @@ typedef	struct		s_ls
 	char	*u_name;
 	char	*g_name;
 	char	*right;
+	int		major;
+	int		minor;
 	int		nb_link;
 	int		nb_block;
 	size_t	size;
@@ -58,6 +60,8 @@ typedef	struct		s_option
 
 typedef struct		s_max
 {
+	int		max_major;
+	int		max_minor;
 	int		max_link;
 	int		max_uname;
 	int		max_gname;
@@ -97,4 +101,8 @@ char				*ft_take_time(time_t time_file);
 void				ft_fill_max(t_max *max, t_list *list);
 void				ft_putstr_left(char *str, int with);
 void				ft_putstr_right(char *str, int with);
+int					ft_get_major(int dev);
+int					ft_get_minor(int dev);
+int					ft_fill_major(t_list *list);
+int					ft_fill_minor(t_list *list);
 #endif
