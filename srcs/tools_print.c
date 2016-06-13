@@ -6,19 +6,19 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/27 14:44:56 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 17:16:52 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/05/27 17:53:14 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void	ft_putstr_right(char *str, int with)
+void		ft_putstr_right(char *str, int with)
 {
 	int len;
 	int diff;
 
 	len = (int)ft_strlen(str);
-	if ((diff = with - len ) >= 0)
+	if ((diff = with - len) >= 0)
 	{
 		while ((diff--))
 			ft_putchar(' ');
@@ -40,7 +40,7 @@ void		ft_putstr_left(char *str, int with)
 	while (*str && with)
 	{
 		ft_putchar(*str++);
-		with--;	
+		with--;
 	}
 	while ((with--))
 		ft_putchar(' ');

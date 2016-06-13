@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 16:03:50 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/12 18:05:10 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 12:25:15 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -19,9 +19,9 @@ int		ft_ascii_cmp(t_ls *content, t_ls *content2)
 
 int		ft_mtime_cmp(t_ls *content, t_ls *content2)
 {
-	if (content->mtime > content2->mtime)
+	if (content->mtime < content2->mtime)
 		return (1);
-	else if (content->mtime < content2->mtime)
+		else if (content->mtime > content2->mtime)
 		return (-1);
 	else
 		return (ft_ascii_cmp(content, content2));

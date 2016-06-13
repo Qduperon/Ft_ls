@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 17:55:39 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/26 17:57:49 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 12:19:29 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -17,23 +17,23 @@ void	ft_check_sticky(char *rights, struct stat *tmp_stat)
 	if (tmp_stat->st_mode & S_ISUID)
 	{
 		if (rights[2] == 'x')
-			rights[2] = 'S';
-		else
 			rights[2] = 's';
+		else
+			rights[2] = 'S';
 	}
 	if (tmp_stat->st_mode & S_ISGID)
 	{
 		if (rights[5] == 'x')
-			rights[5] = 'S';
-		else
 			rights[5] = 's';
+		else
+			rights[5] = 'S';
 	}
 	if (tmp_stat->st_mode & S_ISVTX)
 	{
 		if (rights[8] == 'x')
-			rights[8] = 'T';
-		else
 			rights[8] = 't';
+		else
+			rights[8] = 'T';
 	}
 }
 

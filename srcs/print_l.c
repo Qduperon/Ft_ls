@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 15:36:16 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/27 17:27:05 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/13 12:31:03 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -41,7 +41,7 @@ static void		ft_take_long(t_list *list, t_opt flags, t_max max)
 	ft_putstr_right(ft_itoa(((t_ls*)(list->content))->nb_link), max.max_link);
 	ft_putchar(' ');
 	ft_putstr_left(((t_ls*)(list->content))->u_name, max.max_uname);
-	ft_putchar(' ');
+	ft_putstr("  ");
 	ft_putstr_left(((t_ls*)(list->content))->g_name, max.max_gname);
 	ft_putstr("  ");
 	ft_putstr_right(ft_itoa(((t_ls*)(list->content))->size), max.max_size);
@@ -54,7 +54,7 @@ static void		ft_take_long(t_list *list, t_opt flags, t_max max)
 static int		ft_block(t_list *list)
 {
 	int block;
-	
+
 	block = 0;
 	while (list)
 	{
