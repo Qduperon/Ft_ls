@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/26 17:55:39 by qduperon          #+#    #+#             */
-/*   Updated: 2016/06/13 19:10:38 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:47:12 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -49,7 +49,7 @@ void	ft_check_acl_extend(char *rights, char *path)
 		acl_free((void *)tmp);
 		rights[9] = '+';
 	}
-	if ((nb_xat = listxattr(path, buff, BUFF, XATTR_NOFOLLOW) && 
+	if ((nb_xat = listxattr(path, buff, BUFF, XATTR_NOFOLLOW) &&
 				ft_strstr(path, "dev") == 0))
 		rights[9] = '@';
 }

@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/03/07 18:30:48 by qduperon          #+#    #+#             */
-/*   Updated: 2016/06/13 15:30:34 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:46:46 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -53,7 +53,7 @@ char	*ft_build_path(char *d_name, char *path)
 int		ft_get_major(int dev)
 {
 	while ((dev / 256) > 0)
-	dev = dev / 256;
+		dev = dev / 256;
 	return (dev);
 }
 

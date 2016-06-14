@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/06/13 15:51:03 by qduperon          #+#    #+#             */
-/*   Updated: 2016/06/13 17:08:27 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:48:24 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -14,9 +14,9 @@
 
 int		ft_fill_major(t_list *list)
 {
-	char *buff;
-	int len;
-	int max;
+	char	*buff;
+	int		len;
+	int		max;
 
 	max = 0;
 	while (list)
@@ -30,11 +30,11 @@ int		ft_fill_major(t_list *list)
 	return (max);
 }
 
-int 	ft_fill_minor(t_list *list)
+int		ft_fill_minor(t_list *list)
 {
-	char *buff;
-	int len;
-	int max;
+	char	*buff;
+	int		len;
+	int		max;
 
 	max = 0;
 	while (list)
