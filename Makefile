@@ -6,7 +6,7 @@
 #    By: qduperon <marvin@42.fr>                    +#+  +:+       +#+         #
 #                                                 +#+#+#+#+#+   +#+            #
 #    Created: 2016/02/23 15:45:44 by qduperon          #+#    #+#              #
-#    Updated: 2016/06/13 17:10:35 by qduperon         ###   ########.fr        #
+#    Updated: 2016/06/14 15:16:10 by qduperon         ###   ########.fr        #
 #                                                                              #
 # **************************************************************************** #
 
@@ -53,7 +53,7 @@ all: $(NAME)
 
 $(NAME): 
 	make -C libft
-	gcc -o $(NAME) $(SRCS) -I ./includes -lft -L./libft
+	gcc -o $(NAME) $(FLAGS) $(SRCS) -I ./includes -lft -L./libft
 
 #==============================================================================#
 #                           //  DELETING  \\                                   #
