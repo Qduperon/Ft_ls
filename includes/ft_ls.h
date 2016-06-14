@@ -6,7 +6,7 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/02/23 16:06:17 by qduperon          #+#    #+#             */
-/*   Updated: 2016/06/13 17:10:08 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:28:28 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
@@ -91,7 +91,7 @@ char				*ft_grab_uid(uid_t uid);
 char				ft_grab_type(struct stat *tmp_stat);
 char				*ft_grab_right(struct stat *tmp_stat, char *path);
 void				ft_print(t_list *list, t_opt flags);
-void				ft_print_ls(t_list *list, t_opt flags);
+void				ft_print_ls(t_list *list);
 void				ft_check_sticky(char *rights, struct stat *tmp_stat);
 void				ft_check_acl_extend(char *rights, char *path);
 void				ft_split_arg(t_list **list_f, t_list **list_s,

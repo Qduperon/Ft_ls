@@ -6,13 +6,13 @@
 /*   By: qduperon <marvin@42.fr>                    +#+  +:+       +#+        */
 /*                                                +#+#+#+#+#+   +#+           */
 /*   Created: 2016/05/12 16:44:09 by qduperon          #+#    #+#             */
-/*   Updated: 2016/05/26 18:01:15 by qduperon         ###   ########.fr       */
+/*   Updated: 2016/06/14 15:28:24 by qduperon         ###   ########.fr       */
 /*                                                                            */
 /* ************************************************************************** */
 
 #include "ft_ls.h"
 
-void		ft_print_ls(t_list *list, t_opt flags)
+void		ft_print_ls(t_list *list)
 {
 	if (ioctl(1, TIOCGWINSZ) == -1)
 	{
